@@ -1,0 +1,274 @@
+
+/* Zona donde declare los parametros de cada respectivo elemento */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-primary:#DF772D;
+    --color-second: #191916;
+    --color-text:#FFFFFF;
+    --style-title:'Fascinate Inline', 'UnifrakturMaguntia';
+    --style-text: 'Dancing Script', 'Meow Script';
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+h1{
+    box-shadow: 1px 5px 5px var(--color-second);
+    font-size: 2.5em;
+}
+
+h2 {
+    color: var(--color-primary);
+    font-size: 2em;
+}
+
+p{
+    color: var(--color-text);
+    font-size: 1.5em;
+}
+
+a{
+    text-decoration: none;
+    color: var(--color-text);
+    
+}
+
+.container_about {
+    height: 80%;
+    animation: fade 2s ease-in-out;
+}
+
+.menu{
+    background: var(--color-primary);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8vh;
+    box-shadow: 0 0 20px var(--color-second);
+}
+
+.sub_menu {
+    width: 20%;
+}
+.sub_menu a{
+    margin: 9%
+}
+
+.about{
+    background: var(--color-second);
+    width: 70vw;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(50%,1fr));
+    justify-items: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px var(--color-primary);
+    
+}
+
+.image{
+    display:flex;
+    justify-content: center;
+}
+
+.about img{
+    width: 50%;
+}
+
+.about div{
+    padding: 20px;
+}
+
+.portfolio{
+    background: var(--color-second);
+    width: 70vw;
+    margin: 40px auto;
+    color: var(--color-text);
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(49%,1fr));
+    justify-items: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px var(--color-primary);
+}
+
+/* ventana oculta */
+.projects{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+
+
+.container_projects{
+    background-color: var(--color-second);
+    padding: 20px;
+    border-radius: 20px;
+    width: 50vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(50%,1fr));
+    position: relative;
+    text-align: center;
+    align-items: center;
+    animation: title 2.5s , 0.6s step-end infinite;
+    
+}
+
+.container_projects img {
+    width: 15%;
+}
+
+.container_about a {
+    align-items:center;
+}
+
+/*boton de cerrar ventana oculta*/
+.close {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    font-size: 24px;
+    color: var(--color-primary);
+}
+
+.contanct {
+    background-color: var(--color-primary);
+    color: var(--color-texto);
+    padding: 1rem;
+    font-family: var(--style-text);
+
+}
+
+.footer_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer_section ul {
+    list-style: none;
+    padding: 0.5em;
+    display: flex;
+}
+.footer_section a {
+    margin: 0.5em;
+}
+
+.footer_bottom {
+    text-align: center;
+    margin-top: 1rem;
+    box-shadow: 10px 10px 10px 5px  var(--color-second);
+    padding-top: 1rem;
+    font-size: 0.7em;
+}
+
+.social-icons li {
+    margin-bottom: 0.5rem;
+}
+
+.social-icons img{
+    width: 2em;
+    margin: 5px;
+    
+}
+
+/* Zona de animaciones e interaciones */
+
+a:hover{
+    text-decoration: line-through;
+}
+
+/* Al dar clic muestra la ventana oculta */
+.projects:target {
+    display: flex;
+}
+
+.portfolio a::before{
+    content:"👉 ";
+}
+
+.portfolio a::after{
+    content:" 👈";
+}
+
+.social-icons img:hover {
+    width: 2em;
+    transform: scale(1.2) rotate(8deg);
+}
+
+.projects_content a::before ,.projects_content p::before{
+    content: "✨ ";
+}
+
+@keyframes title {
+    from {
+        width: 0;
+    }
+    to {
+        width: 50%
+    };
+}
+
+@keyframes fade {
+    0% {
+        opacity:0;
+    }
+}
+
+
+/* Responsive */
+
+@media (max-width:460px){
+
+    h1,h2,h3,p,a {
+        font-size: 1em;
+    }
+
+    .menu h1{
+        display: none;
+    }
+    .menu{
+        display: flow-root;
+    }
+
+    .sub_menu{
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(33%,1fr));
+        width: 100%;
+        justify-items: center;
+    }
+
+    .container_about{
+        height: 100vh;
+        margin-bottom: 20px;
+    }
+    
+    .container_projects{
+        width: 100vw;
+    }
+
+    
+    @keyframes title {
+    from {
+        width: 0;
+    }
+    to {
+        width: 80%
+    };
+}
+
+}
